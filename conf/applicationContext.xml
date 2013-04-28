@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:neo4j="http://www.springframework.org/schema/data/neo4j"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       	http://www.springframework.org/schema/beans
+       	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/data/neo4j
+		http://www.springframework.org/schema/data/neo4j/spring-neo4j.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--
+    Neo4j Local data store configuration:
+    <neo4j:config storeDirectory="target/neo4j-db"/>
+    -->
+
+    <!-- Neo4j Rest API -->
+    <neo4j:config graphDatabaseService="graphDatabaseService"/>
+
+    <bean id="graphDatabaseService" class="org.springframework.data.neo4j.rest.SpringRestGraphDatabase">
+        <!--
+            The Neo4j Addon (Neo4j Try) provides only one environment variable, called NEO4J_URL.
+            At this time, Spring Data Neo4j does not work passing only this variable
+            (eg.: <constructor-arg value="${NEO4J_URL}"/>).
+
+            You'll need to "break" the URL into three pieces:
+            http://NEO4J_LOGIN:NEO4J_PASSWORD@NEO4J_REST_URL
+
+            heroku config:set NEO4J_REST_URL=http://<NEO4J_REST_URL>/db/data/
+            heroku config:set NEO4J_LOGIN=<LOGIN>
+            heroku config:set NEO4J_PASSWORD=<PASSWORD>
+        -->
+
+        <constructor-arg index="0" value="${NEO4J_REST_URL}" />
+        <constructor-arg index="1" value="${NEO4J_LOGIN}" />
+        <constructor-arg index="2" value="${NEO4J_PASSWORD}" />
+    </bean>
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="controllers, services, repositories, models" />
+
+    <neo4j:repositories base-package="repositories"/>
+
+    <tx:annotation-driven mode="proxy"/>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"/>
+</beans>
