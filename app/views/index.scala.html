@@ -5,10 +5,10 @@
 	<div class="container">
 		<div class="content">
 			<div class="page-header">
-				<h2>Play 2.1 + Spring Data Neo4j</h2>
+				<h2>PlayFramework and Spring Data Neo4j</h2>
 			</div>
 			<div class="row">
-				<div class="span14">
+				<div>
 					<fieldset>
 						<legend>Here are some objects/relations we just created</legend>
 						<table class="table table-hover">
@@ -35,7 +35,7 @@
 						<legend>And the path from @worlds(0).name to @worlds(worlds.size -1).name</legend>
 						<ul class="breadcrumb">
 							@for(pathWorld <- path) {
-							<li><a href="#">@pathWorld.name</a> <span class="divider">/</span></li>
+								<li><a href="#">@pathWorld.name</a> <span class="divider">/</span></li>
 							}
 						</ul>
 					</fieldset>
