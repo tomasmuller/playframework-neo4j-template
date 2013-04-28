@@ -1,9 +1,11 @@
 PlayFramework Spring Data Neo4j Template
 --------------------------------------------
-PlayFramework + Spring Data Neo4j skeleton project.
+PlayFramework and Spring Data Neo4j skeleton project.
 
 Server-side:
-- SpringFramework
+- Neo4j Graph Database
+- Scala and Java integration
+- Spring
 - Spring Data
 - Spring Data Neo4j
 - CDI (javax.inject)
