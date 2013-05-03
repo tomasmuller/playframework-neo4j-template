@@ -17,30 +17,32 @@
 
     <!--
     Neo4j Local data store configuration:
-    <neo4j:config storeDirectory="target/neo4j-db"/>
     -->
+    <neo4j:config storeDirectory="target/neo4j-db"/>
 
-    <!-- Neo4j Rest API -->
+    <!--
+        Neo4j Rest API:
+
+        The Neo4j Addon (Neo4j Try) provides only one environment variable, called NEO4J_URL.
+        At this time, Spring Data Neo4j does not work passing only this variable
+        (eg.: <constructor-arg value="${NEO4J_URL}"/>).
+
+        You'll need to "break" the URL into three pieces:
+        http://NEO4J_LOGIN:NEO4J_PASSWORD@NEO4J_REST_URL
+
+        heroku config:set NEO4J_REST_URL=http://<NEO4J_REST_URL>/db/data/
+        heroku config:set NEO4J_LOGIN=<LOGIN>
+        heroku config:set NEO4J_PASSWORD=<PASSWORD>
+    -->
+    <!--
     <neo4j:config graphDatabaseService="graphDatabaseService"/>
 
     <bean id="graphDatabaseService" class="org.springframework.data.neo4j.rest.SpringRestGraphDatabase">
-        <!--
-            The Neo4j Addon (Neo4j Try) provides only one environment variable, called NEO4J_URL.
-            At this time, Spring Data Neo4j does not work passing only this variable
-            (eg.: <constructor-arg value="${NEO4J_URL}"/>).
-
-            You'll need to "break" the URL into three pieces:
-            http://NEO4J_LOGIN:NEO4J_PASSWORD@NEO4J_REST_URL
-
-            heroku config:set NEO4J_REST_URL=http://<NEO4J_REST_URL>/db/data/
-            heroku config:set NEO4J_LOGIN=<LOGIN>
-            heroku config:set NEO4J_PASSWORD=<PASSWORD>
-        -->
-
         <constructor-arg index="0" value="${NEO4J_REST_URL}" />
         <constructor-arg index="1" value="${NEO4J_LOGIN}" />
         <constructor-arg index="2" value="${NEO4J_PASSWORD}" />
     </bean>
+    -->
 
     <context:annotation-config/>
 
