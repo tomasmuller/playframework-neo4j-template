@@ -1,4 +1,4 @@
 load 'deploy'
 
+# recipes
 load 'conf/deploy'
-load 'conf/play-recipes'
