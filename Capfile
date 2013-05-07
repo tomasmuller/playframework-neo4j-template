@@ -1,4 +1,6 @@
-load 'deploy'
+require 'rubygems'
 
-# recipes
+load 'deploy'
 load 'conf/deploy'
+
+require 'playframework/capistrano'
