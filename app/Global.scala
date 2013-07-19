@@ -1,5 +1,5 @@
-import org.springframework.context.ApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext
+import org.springframework.data.neo4j.support.Neo4jTemplate
 import play.api._
 
 object Global extends GlobalSettings {
@@ -22,6 +22,8 @@ object Global extends GlobalSettings {
 	* @param app
 	*/
 	override def onStop(app: Application) {
+    val  neoTemplate:Neo4jTemplate = ctx.getBean(classOf[Neo4jTemplate]);
+    neoTemplate.getGraphDatabaseService.shutdown();
 		ctx.stop()
 	}
 
