@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "homepage": "https://github.com/tomasmuller/playframework-neo4j-template",
   "authors": [
-    "Tomás Augusto Müller <tomas.am@gmail.com>"
+    "Tomás Augusto Müller"
   ],
   "license": "MIT",
   "private": true,
