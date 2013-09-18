@@ -11,9 +11,9 @@ object ApplicationBuild extends Build {
     javaCore,
     "javax.inject" % "javax.inject" % "1",
     "asm" % "asm" % "3.3.1",
-    "org.springframework" % "spring-context" % "3.2.2.RELEASE",
-    "org.springframework.data" % "spring-data-neo4j" % "2.2.0.RELEASE",
-    "org.springframework.data" % "spring-data-neo4j-rest" % "2.2.0.RELEASE" excludeAll(
+    "org.springframework" % "spring-context" % "3.2.4.RELEASE",
+    "org.springframework.data" % "spring-data-neo4j" % "2.3.1.RELEASE",
+    "org.springframework.data" % "spring-data-neo4j-rest" % "2.3.1.RELEASE" excludeAll(
       ExclusionRule(organization = "org.neo4j", name="neo4j")
     ),
 
