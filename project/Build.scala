@@ -17,11 +17,11 @@ object ApplicationBuild extends Build {
       ExclusionRule(organization = "org.neo4j", name="neo4j")
     ),
 
-    "org.neo4j" % "neo4j" % "1.9.RC1" excludeAll(
+    "org.neo4j" % "neo4j" % "1.9.3" excludeAll(
       ExclusionRule(organization = "org.neo4j", name="neo4j-kernel")
     ),
-    "org.neo4j" % "neo4j-kernel" % "1.9.RC1" % "test" classifier "tests" classifier "",
-    "org.neo4j" % "neo4j-rest-graphdb" % "1.9.M04"
+    "org.neo4j" % "neo4j-kernel" % "1.9.3" % "test" classifier "tests" classifier "",
+    "org.neo4j" % "neo4j-rest-graphdb" % "1.9.RC2"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
