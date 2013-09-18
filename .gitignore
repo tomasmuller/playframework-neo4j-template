@@ -3,6 +3,8 @@
 .*
 # except for .gitignore
 !.gitignore
+# except for .bowerrc
+!.bowerrc
 
 # Ignore Play! working directory #
 db
