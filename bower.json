@@ -1,0 +1,22 @@
+{
+  "name": "playframework-neo4j-template",
+  "version": "1.0.0",
+  "homepage": "https://github.com/tomasmuller/playframework-neo4j-template",
+  "authors": [
+    "Tomás Augusto Müller <tomas.am@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "html5shiv": "~3.6.2",
+    "bootstrap": "~3.0.0"
+  }
+}
